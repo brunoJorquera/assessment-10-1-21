@@ -22,4 +22,4 @@ let resultsArr = perf.stop();
 console.log('Results for the arr');
 console.log("speed", resultsArr.preciseWords);
 
-// Time complexity of the function arrSum is O(n^2)
+// Time complexity of the function arrSum is O(n^2), space complexity is also O(n^2)
