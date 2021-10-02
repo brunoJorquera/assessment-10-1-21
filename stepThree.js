@@ -153,3 +153,16 @@ const isPan = (str) => {
 
 // Longest Word w/ Stuart ex: ==============================================
 
+const words = ['this','that','stegosaurus','pancakes',"thisisareallylongword","supercalifragilisticexpialodocious"]
+
+const findLongestWord = (strArr) => {
+    let longest = strArr[0]
+    for(let i = 0; i < strArr.length; i++){
+        if(strArr[i].length > longest.length){
+            longest = strArr[i]
+        }
+    }
+    return longest.length
+}
+
+console.log(findLongestWord(words))
