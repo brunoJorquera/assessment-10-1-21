@@ -102,24 +102,54 @@ const hasUniqueChar = (str) => {
 
 // Pangram Stuart Ex. ===========================================
 
-const isPan = (str) => {
-    const alpha = 'abcdefghijklmnopqrstuvwxyz'.split('')
-    console.log(alpha) //before removal
-    for(let i = 0; i < str.length; i++){
-        for(let j = 0; j < alpha.length; j++){
-            if(str[i].toLowerCase() === alpha[j]){
-                alpha.splice(j, 1)
-                j = alpha.length
-            }
-        }
-    }
-    console.log(alpha)
-    if(alpha.length === 0){
-        return true
-    }
-    return false
-}
+// const isPan = (str) => {
+//     const alpha = 'abcdefghijklmnopqrstuvwxyz'.split('')
+//     console.log(alpha) //before removal
+//     for(let i = 0; i < str.length; i++){
+//         for(let j = 0; j < alpha.length; j++){
+//             if(str[i].toLowerCase() === alpha[j]){
+//                 alpha.splice(j, 1)
+//                 j = alpha.length
+//             }
+//         }
+//     }
+//     console.log(alpha)
+//     if(alpha.length === 0){
+//         return true
+//     }
+//     return false
+// }
 
-console.log(isPan('The quick brown fox jumps over the lazy dog!'))
+// console.log(isPan('The quick brown fox jumps over the lazy dog!'))
 
 //Updated =========================================
+
+// const isPan = (str) => {
+//     const alpha = new Set()
+//     str = str.toLowerCase().replace(/([^a-z])+/g, '').split('')
+//     console.log(alpha) //before removal
+//     str.forEach((letter) => {
+//         alpha.add(letter)
+//     })
+//     console.log(alpha)
+//     if(alpha.size === 26){
+//         return true
+//     }
+//     return false
+// }
+
+//updated pt 2 =======================
+
+const isPan = (str) => {
+    const alpha = new Set('abcdefghijklmnopqrstuvwxyz'.split(''))
+    str.split('').forEach((letter) => {
+        alpha.delete(letter)
+    })
+    return alpha.size === 0 ? true : false
+}
+
+
+// console.log(isPan('The quick brown fox jumps over the lazy dog!'))
+
+// Longest Word w/ Stuart ex: ==============================================
+
